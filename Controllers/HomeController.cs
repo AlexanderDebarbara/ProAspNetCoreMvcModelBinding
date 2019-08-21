@@ -104,5 +104,17 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
         {
             return View("Header", model);
         }
+
+        [HttpGet]
+        public ViewResult Body()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult Body([FromBody]Pessoa pessoa)
+        {
+            return Json(pessoa.Nome);
+        }
     }
 }
