@@ -90,5 +90,19 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
         {
             return View("Enderecos", enderecos ?? new List<EnderecoResumido>());
         }
+
+        public string Header([FromHeader]string accept)
+        {
+            return $"Header: {accept}";
+        }
+
+        public string Header2([FromHeader(Name = "Accept-Language")] string accept)
+        {
+            return $"Header: {accept}";
+        }
+        public ViewResult Header3(HeaderModel model)
+        {
+            return View("Header", model);
+        }
     }
 }
