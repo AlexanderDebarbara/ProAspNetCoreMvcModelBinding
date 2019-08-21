@@ -38,6 +38,7 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
             }
         }
 
+      
         public ViewResult Cadastro()
         {
             return View("Cadastro", new Pessoa());
@@ -71,6 +72,11 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
         public ViewResult Nomes2(IList<string> nomes)
         {
             return View("Nomes2", nomes ?? new List<string>());
+        }
+
+        public ViewResult Enderecos(IList<EnderecoResumido> enderecos)
+        {
+            return View("Enderecos", enderecos ?? new List<EnderecoResumido>());
         }
     }
 }
