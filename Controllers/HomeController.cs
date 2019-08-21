@@ -38,7 +38,19 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
             }
         }
 
-      
+        public IActionResult Index4([FromQuery] int? id)
+        {
+            Pessoa pessoa;
+            if (id.HasValue && (pessoa = repository[id.Value]) != null)
+            {
+                return View("Index", pessoa);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         public ViewResult Cadastro()
         {
             return View("Cadastro", new Pessoa());
